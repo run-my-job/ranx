@@ -1,19 +1,15 @@
 name: python-app
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: push
 jobs:
- build:
-  runs-on: ubuntu-latest
-  steps:
-  - name: checkout repo
-    uses: actions/checkout@main
-  - name: clean
-    run: make clean
-  - name: check-lint
-    run: make lint
-  - name: run unit test
-    run: make test
+  build:
+    runs-on: puzl-ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@main
+      - name: clean
+        run: make clean
+      - name: check-lint
+        run: make lint
+      - name: run unit test
+        run: make test
